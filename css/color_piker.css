@@ -1,0 +1,9 @@
+.color_piker{position:absolute; left:50px; top:50px; height:200px; width:20px; }
+	.color_piker svg{display:block; width:100%; height:100%; position:absolute; top:0; left:0;}
+	
+	.gradient_picker{position: absolute; top:0; left:0; width:100%; height:100%;}
+		.gradient_picker>svg{display:block; width:100%; height:100%; position:absolute; top:0; left:0;}
+			.gradient_picker>svg>path{transform: translate(80%, -10%);}
+			
+	#color_gradient{margin:0 auto; width:700px; padding:50px; background-color:white;}
+		#color_gradient>div{width:300px; height:50px; margin:1px;}

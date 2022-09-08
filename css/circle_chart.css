@@ -1,0 +1,886 @@
+body{ background: var(--background-gray);}
+.diagram {
+    display: block;
+	padding-top: 150px;
+    position:relative;
+	overflow-x:scroll;
+	overflow-y:scroll;
+}
+.diagram h1{text-align:center; margin-bottom:50px;}
+.neomorph{
+	border-radius: 40px;
+	background: #ecf0f3;
+	box-shadow: 13px 13px 20px #cbced1,
+              -13px -13px 20px #ffffff;
+}
+.chart_container {
+    position: relative;
+    width: 700px;
+    height: 700px;
+    margin: 0 auto;
+    background-color: white;
+	border-radius: 40px;
+	background: rgba(240,240,240,1);
+	box-shadow: 13px 13px 20px #cbced1,
+              -13px -13px 20px #ffffff;
+    z-index: 0;
+	
+}
+
+.chart_container .svg_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.chart_container>.svg_container svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.chart_container img {
+    display: block;
+    position: absolute;
+}
+
+.chart_container .person {
+    position: absolute;
+    opacity: 1;
+    z-index: 25;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.25s ease-in;
+}
+
+ .person>.person_container {
+    display: none;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+ .person_container>.full_name {
+    display: block;
+    position: absolute;
+    /* font-family: RobotoBold; */
+    font-size: 20px;
+    bottom: 0;
+    left: 50%;
+    width: auto;
+    white-space: nowrap;
+    transform: translate(-50%, 180%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px 5px 10px;
+    border-radius: 21px;
+    border: 1px solid rgba(200, 200, 200, 1)
+}
+
+.person_info {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 310px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+	overflow:hidden;
+}
+
+.person_info>div {
+    position: absolute;
+    top: 75px; left:0; width:100%;
+	transition: transform 0.2s ease-in;
+}
+
+.person_info .ranking {
+   transform:translateX(100%);
+}
+
+.person_info .req_ranking {
+   transform:translateX(100%);
+}
+
+.person_info>div>.assess {
+    display: block;
+    position: relative;
+    width: 270px;
+    height: 50px;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.person_info>div>.assess:hover{cursor:pointer;}
+
+.person_info>div>.assess>div {
+    display: flex;
+    color: inherit;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(254, 209, 0, 1);
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 4px;
+    /* font-family: RobotoBold; */
+}
+
+.person_info>div>.assess>div>div:first-child {
+    width: 15%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box
+}
+
+.person_info>div>.assess>div svg {
+    display: block;
+    position: relative;
+    width: 32px;
+    height: 32px;
+}
+.person_info p{
+	width:270px; margin:0 auto; padding: 20px 0; text-align: center
+}
+.person_info .stars{
+	display:flex; align-items:center; justify-content:space-between;
+	width:270px; margin:0 auto; padding: 20px 0;
+}
+.person_info .stars>svg{
+	display:block; width:40px; height:40px; padding:2px;
+}
+.person_info .stars>svg:hover{cursor:pointer;}
+.person_info .stars>svg>path{
+	fill:rgba(255,255,255,0); stroke: rgb(255, 216, 0); stroke-width: 2px;
+}
+.person_info .stars>.active>path{
+	fill:rgb(255, 216, 0);
+}
+
+
+.person_info>div>.position {
+    padding: 10px 20px 10px 20px;
+    opacity: 0.57;
+    font-style: italic;
+    text-align: center;
+}
+
+.person_info>div>.rate {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.person_info>div>.rate>.result>div:first-child {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 60px;
+}
+
+.person_info>div>.rate>.result>div:nth-child(2) {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.5);
+    /* font-family: RobotoRegular; */
+}
+
+.chart_container .person_container .txt>span {
+    display: block;
+}
+
+.chart_container .person_container .txt>span>b {
+    color: rgba(0, 0, 0, 0.9)
+}
+
+.person_info>div>.rate>.ass_me {
+    padding-right: 10px;
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.person_info>div>.rate>.ass_other {
+    padding-left: 10px;
+}
+
+.person_info>div>.rate .assess_icon {
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+
+.person_info>div>.rate .assess_rate {
+    width: 50%;
+    font-size: 30px;
+    /* font-family: Bandera_Pro; */
+}
+
+.person_info>div>.rate>.result svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.person_info>div>.other {}
+
+.person_info>div>.me {}
+
+.chart_container .person>.photo_div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.25s ease-in;
+}
+
+.chart_container .person>.photo_div>div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background-color: rgba(200, 200, 200, 1);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 1);
+    box-sizing: border-box;
+    transition: transform 150ms ease-out;
+}
+
+.chart_container .person_container .get_subordinate {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    transform: translate(0%, 0%);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid rgba(255, 121, 0, 1);
+    z-index: 200;
+    transition: all 0.2s ease-in;
+}
+
+.chart_container .person_container .get_subordinate>svg {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%, -50%);
+    fill: rgba(255, 121, 0, 1);
+    transition: all 0.2s ease-in;
+}
+
+.chart_container .person_container .get_subordinate>svg>path {
+    fill: rgba(255, 121, 0, 1);
+}
+
+.chart_container .person>.photo_div:hover {
+    cursor: pointer
+}
+
+
+.chart_container .get_subordinate:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+}
+
+.chart_container .staff_photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.chart_container .person>.photo_div>.photo_not_real {
+    background-color: rgba(224, 225, 221, 1);
+}
+
+.chart_container .img_not_real {
+    opacity: 0.7;
+}
+
+/*#chart_container>svg>g>g>path:hover {stroke: rgba(122,184,0,0.6);}*/
+
+.chart_container #first_person_photo {
+    position: absolute;
+    top: 300px;
+    left: 300px;
+    transform: translate(-50%, -50%);
+    width: 78px;
+    height: 78px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.chart_container #first_person_photo>img {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.chart_container g {}
+
+.chart_container .circle {
+    fill: transparent;
+    stroke: rgba(0, 0, 0, 0.2);
+    stroke-width: 1;
+}
+.chart_container .circle_unvisible{
+	fill: transparent;
+    stroke: rgba(0, 0, 0, 0);
+    stroke-width: 1;
+}
+
+.chart_container .div_path,
+.chart_container .staff_path {
+    stroke: rgba(200, 200, 200, 1);
+}
+
+.chart_container .not_real,
+.chart_container .not_real {
+    stroke: rgba(200, 200, 200, 1);
+}
+
+.chart_container .person_circle {
+    fill: white;
+    stroke: rgba(0, 0, 0, 0.3);
+    stroke-width: 1;
+}
+
+.chart_container .person_info_div {
+    position: absolute;
+    display: none;
+    width: 250px;
+    height: 350px;
+    background-color: transparent;
+    z-index: 50;
+    transform: translate(-125px, -75px);
+}
+
+.chart_container .inner_info_div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(17, 28, 36, 0.9);
+    opacity: 1;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+}
+
+.chart_container .inner_info_photo {
+    position: absolute;
+    z-index: 60;
+    width: 60px;
+    height: 60px;
+    top: 75px;
+    left: 125px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: rgba(200, 200, 200, 1);
+    border: 3px solid rgba(255, 255, 255, 1);
+}
+
+.chart_container .person_content {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 140px 20px 20px 20px;
+    box-sizing: border-box;
+}
+
+.chart_container .person_content>div {
+    position: relative;
+    width: 100%;
+}
+
+.chart_container .person_content>div>a {
+    width: 100%;
+}
+
+.chart_container .person_content>div>.person_name {
+    width: 100%;
+    color: white;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.btn {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    height: 48px;
+    padding: 0 40px;
+    background-position: center;
+    -webkit-transition: background .8s;
+    transition: background .8s;
+    white-space: nowrap;
+    color: #000;
+    /* font-family: "Roboto Bold", sans-serif, Arial; */
+    font-size: 14px;
+    line-height: 48px;
+    font-weight: 700;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+}
+
+.division_info_div {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.8s;
+    position: fixed;
+    z-index: 150;
+    top: 700px;
+    left: 200px;
+    transform: translate(-25px, -50%);
+    padding-left: 50px;
+}
+
+.chart_container .division_info_div>.person_info {
+    position: relative;
+    transform: translate(0, 0);
+    top: 0;
+    left: 0;
+}
+
+.chart_container .division_info_div>.person_info>div {
+    margin-top: 0;
+    padding: 30px 0 30px 0;
+}
+
+
+.chart_panal {
+    position: relative;
+    display: flex;
+    width: 700px;
+    height: 70px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    background-color: rgba(240,240,240,1);
+    box-sizing: border-box;
+}
+
+.person_list {
+    position: absolute;
+    height: 70px;
+    padding: 5px;
+    box-sizing: border-box;
+    /* -webkit-box-shadow: inset 0px 0px 22px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: inset 0px 0px 22px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 0px 0px 22px 0px rgba(0, 0, 0, 0.75); */
+}
+
+.person_list .person_container {
+    position: absolute;
+    left: 5px;
+    width: 60px;
+    height: 60px;
+}
+
+.person_list .person_container>.img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: all 0.2s ease-out;
+}
+
+.person_container>.img>img {
+    position: absolute;
+    width: 100%;
+}
+
+.chart_panal .person_info {
+    position: absolute;
+    padding: 5px 5px 5px 15px;
+    height: 70px;
+    right: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+	background-color: rgba(240,240,240,1);
+	border-radius:40px;
+}
+
+.chart_panal .person_list {
+    transition: width ease-out 0.3s;
+}
+
+.chart_panal .person_list .person_container_name {
+    display: none;
+    position: absolute;
+    /* font-family: RobotoBold; */
+    font-size: 16px;
+    bottom: 0;
+    left: 50%;
+    width: auto;
+    white-space: nowrap;
+    transform: translate(-50%, 115%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px 5px 10px;
+    border-radius: 21px;
+    border: 1px solid rgba(200, 200, 200, 1);
+    z-index: 200;
+}
+
+.chart_panal .peroson_active:hover .img {
+    cursor: pointer;
+    transform: scale(1.05);
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+}
+
+.chart_panal .peroson_active:hover .person_container_name {
+    display: block;
+}
+
+.chart_panal .person_info {
+    transition: width ease-out 0.3s;
+}
+
+.chart_panal .person_info>div {
+    width: 630px;
+}
+
+/* .chart_panal .person_info .full_name {
+    font-family: RobotoBold;
+    font-size: 16px;
+} */
+
+.chart_panal .person_info .person_position {
+    font-style: italic;
+    font-size: 13px;
+}
+
+.chart_panal .person_info .person_position>span {
+    /* font-style: "Roboto Bold"; */
+    font-size: 11px;
+    font-style: normal;
+}
+
+.chart_container .loading {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    width: 100px;
+    height: 100px;
+    z-index: -10;
+	animation: circle-animation 0.8s linear infinite;
+}
+
+.chart_container .loading .spinner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+	
+}
+
+.chart_container .loading .spinner>circle {
+    stroke-dasharray: 150;
+   
+}
+
+@keyframes circle-animation {
+    0% {
+        transform: rotate(0deg);
+        stroke-dasharray: 150;
+    }
+    50% {
+        transform: rotate(180deg);
+        stroke-dasharray: 100;
+    }
+    100% {
+        transform: rotate(360deg);
+        stroke-dasharray: 150;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .btn {
+        padding: 0 25px;
+    }
+}
+
+.btn_default {
+    background-color: #ffd800;
+}
+
+.btn_default:hover {
+    background: #E8CB2C -webkit-radial-gradient(circle, transparent 1%, #E8CB2C 1%) center/15000%;
+    background: #E8CB2C radial-gradient(circle, transparent 1%, #E8CB2C 1%) center/15000%;
+}
+
+.btn_default:active {
+    background-color: #ffd800;
+    background-size: 100%;
+    -webkit-transition: background 0s;
+    transition: background 0s;
+}
+
+.btn_default:focus:not(:active)::after {
+    -webkit-animation: ripple 1s ease-out;
+    animation: ripple 1s ease-out;
+}
+
+/* Ripple effect */
+
+@-webkit-keyframes ripple {
+    0% {
+        -webkit-transform: scale(0, 0);
+        transform: scale(0, 0);
+        opacity: 1;
+    }
+    20% {
+        -webkit-transform: scale(25, 25);
+        transform: scale(25, 25);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(40, 40);
+        transform: scale(40, 40);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        -webkit-transform: scale(0, 0);
+        transform: scale(0, 0);
+        opacity: 1;
+    }
+    20% {
+        -webkit-transform: scale(25, 25);
+        transform: scale(25, 25);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(40, 40);
+        transform: scale(40, 40);
+    }
+}
+.tooltip{position:fixed; display:none; top:0; left:0;} 
+.tooltip>div{padding:3px 8px 3px 8px; border-radius:20px;  background-color:rgba(0,0,0,0.5); color:white;}
+
+.division_info {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 250px;
+    height: 250px;
+    top: 0%;
+    left: calc(50% + 25px);
+    transform: translate(0%, -50%);
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+}
+
+.division_info>div {
+    position: absolute;
+    top: 50%; left:0; width:100%;
+	transform: translateY(-50%);
+	transition: transform 0.2s ease-in;
+}
+
+.division_info .ranking {
+   transform:translateX(100%);
+}
+
+.division_info .req_ranking {
+   transform:translateX(100%);
+}
+
+.division_info>div>.assess {
+    display: block;
+    position: relative;
+    width: 270px;
+    height: 50px;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.division_info>div>.assess:hover{cursor:pointer;}
+
+.division_info>div>.assess>div {
+    display: flex;
+    color: inherit;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(254, 209, 0, 1);
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 4px;
+    /* font-family: RobotoBold; */
+}
+
+.division_info>div>.assess>div>div:first-child {
+    width: 15%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box
+}
+
+.division_info>div>.assess>div svg {
+    display: block;
+    position: relative;
+    width: 32px;
+    height: 32px;
+}
+.division_info p{
+	width:270px; margin:0 auto; padding: 20px 0; text-align: center
+}
+.division_info .stars{
+	display:flex; align-items:center; justify-content:space-between;
+	width:270px; margin:0 auto; padding: 20px 0;
+}
+.division_info .stars>svg{
+	display:block; width:40px; height:40px; padding:2px;
+}
+.division_info .stars>svg:hover{cursor:pointer;}
+.division_info .stars>svg>path{
+	fill:rgba(255,255,255,0); stroke: rgb(255, 216, 0); stroke-width: 2px;
+}
+.division_info .stars>.active>path{
+	fill:rgb(255, 216, 0);
+}
+
+
+.division_info>div>.position {
+    padding: 10px 20px 10px 20px;
+    opacity: 0.57;
+    font-style: italic;
+    text-align: center;
+}
+
+.division_info>div>.rate {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.division_info>div>.rate>.result>div:first-child {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 60px;
+}
+
+.division_info>div>.rate>.result>div:nth-child(2) {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.5);
+    /* font-family: RobotoRegular; */
+}
+.division_info>div>.rate>.ass_me {
+    padding-right: 10px;
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.division_info>div>.rate>.ass_other {
+    padding-left: 10px;
+}
+
+.division_info>div>.rate .assess_icon {
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+
+.division_info>div>.rate .assess_rate {
+    width: 50%;
+    font-size: 30px;
+    /* font-family: Bandera_Pro; */
+}
+
+.division_info>div>.rate>.result svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.division_info>div>.other {}
+
+.division_info>div>.me {}
+
+.division_info_div .left_arrow {
+    position: absolute !important;
+    padding: 0 !important;
+    background-color: white;
+    top: 0%;
+    left: 50px;
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%) rotate(45deg);
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+}
+
+.division_info_div .left_arrow_overlay {
+    position: absolute !important;
+    padding: 0 !important;
+    background-color: white;
+    top: 50%;
+    left: 0px;
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%) rotate(45deg);
+}

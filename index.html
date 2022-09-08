@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <title>Visualisation staff graph</title>
+  <!--[if IE]>
+   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style>
+   article, aside, details, figcaption, figure, footer,header,
+   hgroup, menu, nav, section { display: block; }
+  </style>
+  <link rel="stylesheet" href="css/style.css?v3">
+  <link rel="stylesheet" href="css/layout.css?v3">
+  <link rel="stylesheet" href="css/chart.css?v1">
+  <link rel="stylesheet" href="css/circle_chart.css?v1">
+  <script src="js/d3/d3.min.js"></script>
+ </head>
+ 
+<body>
+	<main>
+	<section class='diagram'>
+		<div class="frame chart">
+		<div>
+			<div class="chart_panal neomorph">
+				<div class="person_list" id="person_list_container"></div>
+				<div class="person_info" id="person_onfo_container"></div>
+			</div>
+			<div id='chart_container'  class="chart_container">
+				<div id="svg_container" class="svg_container"></div>
+			</div>
+		</div>	
+		</div>
+		<div style="height:100px;"></div>
+		<div class="tooltip"><div class="toolName">tooltip</div></div>
+	</section>
+	</main>
+<script src="js/call_chart.js"> </script>
+</body>
+ 
+ 
+</html>

@@ -1,0 +1,104 @@
+/*Определяем базовые шрифты и цвета*/
+ @font-face {font-family: "RobotoRegular"; src: url("../fonts/Roboto/RobotoRegular/RobotoRegular.eot"); src: url("../fonts/Roboto/RobotoRegular/RobotoRegular.eot?#iefix")format("embedded-opentype"),url("../fonts/Roboto/RobotoRegular/RobotoRegular.woff") format("woff"),url("../fonts/Roboto/RobotoRegular/RobotoRegular.ttf") format("truetype");font-style: normal;font-weight: normal;}
+ @font-face {font-family: "RobotoLight";src: url("../fonts/Roboto/RobotoLight/RobotoLight.eot");src: url("../fonts/Roboto/RobotoLight/RobotoLight.eot?#iefix")format("embedded-opentype"),url("../fonts/Roboto/RobotoLight/RobotoLight.woff") format("woff"),url("../fonts/Roboto/RobotoLight/RobotoLight.ttf") format("truetype");font-style: normal;font-weight: normal;}
+ @font-face {font-family: "RobotoMedium";src: url("../fonts/Roboto/RobotoMedium/RobotoMedium.eot");src: url("../fonts/Roboto/RobotoMedium/RobotoMedium.eot?#iefix")format("embedded-opentype"),url("../fonts/Roboto/RobotoMedium/RobotoMedium.woff") format("woff"),url("../fonts/Roboto/RobotoMedium/RobotoMedium.ttf") format("truetype");font-style: normal;font-weight: normal;}
+ @font-face {font-family: "RobotoBold";src: url("../fonts/Roboto/RobotoBold/RobotoBold.eot");src: url("../fonts/Roboto/RobotoBold/RobotoBold.eot?#iefix")format("embedded-opentype"),url("../fonts/Roboto/RobotoBold/RobotoBold.woff") format("woff"),url("../fonts/Roboto/RobotoBold/RobotoBold.ttf") format("truetype");font-style: normal;font-weight: normal;}
+ 
+ 
+ /*	Главные цвета: 
+		Желтый: 		rgba(254,209,0,1);		#FFE300;
+		Черный: 		rgba(17,28,36,1);		#00011C;
+		Серый: 			rgba(178,180,179,1);	#B1B1B1;
+	Дополнительные цвет:
+		Deep yellow: 	rgba(240,171,0,1);		#F0AB00;
+		Bright orange:	rgba(255,121,0,1);		#FF7900;
+		Bright green:	rgba(122,184,0,1);		#7AB800;
+		Blue:			rgba(0,198,215,1);		#00C6D7;
+		Dark grey:		rgba(139,141,142,1);	#8B8D8E;
+		Light grey:		rgba(224,225,221,1);	#E0E1DD;
+		
+		Mokko:			rgba(113, 92, 76,1);
+*/
+
+ body{
+	font-family: 'RobotoLight', sans-serif;
+	font-weight: 300;
+	font-size:14px;
+	line-height: 1.44;
+	color: rgb(0, 0, 0);
+	position:relative;
+	margin:0;
+	scroll-behavior: smooth;
+ }
+ h1,h2{font-family: 'Bandera_Pro', sans-serif; font-weight:normal; color: rgb(51, 51, 51);}
+ h3,h4,h5,h6{font-family: 'RobotoBold', sans-serif; font-weight:normal; color: rgb(51, 51, 51);}
+ b, strong{font-family:'RobotoMedium', sans-serif; font-weight: normal; color: rgb(51, 51, 51);}
+
+ /*Стилизованный список*/
+ 
+ .big_li{margin-bottom:15px;}
+ .big_li:last-child{margin-bottom:0;}
+ 
+ /*нулевой стиль для списка*/
+ .ul_null {padding: 0;}
+ .ul_null>li:before{display: none!important;}
+
+ .common_text_content img{display:block; max-width:100%; height:auto;}
+ /*Стилевые решения для жестких таблиц 100% ширины*/
+ table>caption{background:url(../img/texture/pattern_big_grey.png);background-size:10px;}
+ table{ border-collapse: collapse;}
+ table th{background-color:#FF7900; color:white;}
+ table td{border-bottom: 1px solid #FF7900; text-align:center;}
+ table tr:last-child td {border-bottom: 0;}
+ 
+ /*Картинки и другие блоки*/
+ .team-main-content .treners_book{display:flex; justify-content:start-flex;}
+	.team-main-content .treners_book>div>a{position:relative; display:block; text-decoration:none; color:inherit; margin:10px; padding:10px; max-width:400px; box-sizing:border-box; transition:all 0.15s ease-in-out;}
+		.team-main-content .treners_book>div>a>div:first-child{position:relative; display:flex; justify-content:center; height:300px;}
+			.team-main-content .treners_book>div>a>div>img{display:block; height:300px;}
+			.team-main-content .treners_book>div>a>div:nth-child(2){text-align:center;}
+		.team-main-content .treners_book>div>a:hover{transform:scale(1.02); box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.15)}
+		
+/*Скрытые блоки - не запущенные*/
+	header .sb_right{}
+	.event_characteristics .order_event{display:none!important;}
+	.form_template{display:none!important;}
+/*видео youtube*/
+	.youtube_video_100{position:relative; width:100%; padding-bottom:56%; margin:0 auto; overflow:hidden;}
+		.youtube_video_100>iframe{position:absolute; width:100%; height:100%; top:0; left:0;}
+/*Чат бот файсбук*/		
+	._30ss{
+		opacity: 0.95;
+		z-index: 10000;
+	}
+ @media all and (min-width: 375px) and (max-width: 1023px){
+	 body{font-size:16px;}
+ }
+  @media all and (min-width: 1023px){
+	 body{font-size:15px;}
+	 .team-main-content .treners_book{display:flex; justify-content:space-around;}
+	 .youtube_video_100{position:relative; width:60%; padding-bottom:33.6%; margin:0 auto; overflow:hidden;}
+		.youtube_video_100>iframe{position:absolute; width:100%; height:100%; top:0; left:0;}
+ }
+ 
+ @media all and (min-width: 1024px) and (max-width: 1279px){
+	body{font-size:15px;}
+	table>caption{text-align:left;}
+	table>caption>h3{margin: 15px 40px 15px 40px;}
+	table th{text-align:left; padding: 10px 40px 10px 40px;}
+	table td{text-align:left; padding: 10px 40px 10px 40px;}
+ }
+ @media all and (min-width: 1280px) and (max-width: 1599px){
+	body{font-size:16px;}
+	table>caption{text-align:left;}
+	table>caption>h3{margin: 15px 40px 15px 40px;}
+	table th{text-align:left; padding: 10px 40px 10px 40px;}
+	table td{text-align:left; padding: 10px 40px 10px 40px;}
+ }
+ @media all and (min-width: 1600px){
+	body{font-size:16px;}
+	table>caption{text-align:left;}
+	table>caption>h3{margin: 15px 40px 15px 40px;}
+	table th{text-align:left; padding: 10px 40px 10px 40px;}
+	table td{text-align:left; padding: 10px 40px 10px 40px;}
+ }

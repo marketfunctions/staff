@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Pragmatica';
+    src: url('fonts/Pragmatica.eot');
+    src: url('fonts/Pragmatica.eot') format('embedded-opentype'),
+         url('fonts/Pragmatica.woff2') format('woff2'),
+         url('fonts/Pragmatica.woff') format('woff'),
+         url('fonts/Pragmatica.ttf') format('truetype'),
+         url('fonts/Pragmatica.svg#Pragmatica') format('svg');
+}
