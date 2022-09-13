@@ -1,4 +1,5 @@
-// if you see this grabish code - you should know - nobody can read this code!!! No functional stile!!!!!!! no object style!!!!! no any style  you think about. It just simple - no sicret/﻿
+// if you see this grabish code - you should know - nobody can read this code!!! No functional stile!!!!!!! no object style!!!!! no any style  you think about
+// AND THIS CODE IS NOT imperative. It's just simple - no sicret 
 var test_obj;
 	var test_data;
 	var test_arr;
